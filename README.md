@@ -2,7 +2,7 @@
 API service for cinema management written on DRF
 
 ## Installing using GitHub
-Install PostgresSQL and create db
+Install PostgresSQL
 
 ```
 git clone https://github.com/alina-boichenko/cinema-api.git
@@ -10,11 +10,22 @@ cd cinema-api
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-set POSTGRES_HOST=<your db hostname>
-set POSTGRES_DB=<your db name>
-set POSTGRES_USER=<your db username>
-set POSTGRES_PASSWORD=<your db user password>
-set SECRET_KEY=<your secret key>
+```
+
+### Setting environment variables
+- Create an empty file .env in the following path: py-dockerize-cinema/.
+- Copy the entire content of the .env.sample file and paste it into the .env file.
+- Modify the placeholders in the .env file with the actual environment variables. For example (but don`t use "< >" in your project):
+```
+POSTGRES_HOST=<your db hostname>
+POSTGRES_DB=<your db name>
+POSTGRES_USER=<your db username>
+POSTGRES_PASSWORD=<your db user password>
+DJANGO_SECRET_KEY=<your secret key>
+```
+
+### Create db
+```
 python manage.py migrate
 python manage.py runserver
 ```
